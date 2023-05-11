@@ -17,30 +17,32 @@ import javax.validation.constraints.*;
  */
 public class User {
     private Long id;
-    /*分组*/
-    @Size(min = 5,max = 8,message = "{user.username.size}",groups = ValidationGroup1.class)
+
+    /**
+     * 分组
+     */
+    @Size(min = 5, max = 8, message = "{user.username.size}", groups = ValidationGroup1.class)
     private String username;
 
-    @NotNull(message = "{user.address.notnull}",groups = ValidationGroup2.class)
+    @NotNull(message = "{user.address.notnull}", groups = ValidationGroup2.class)
     private String address;
-    @DecimalMin(value = "1",message = "{user.age.min}",groups = {ValidationGroup1.class,ValidationGroup2.class})
-    @DecimalMax(value = "200",message = "{user.age.max}")
+
+    @DecimalMin(value = "1", message = "{user.age.min}", groups = {ValidationGroup1.class, ValidationGroup2.class})
+
+    @DecimalMax(value = "200", message = "{user.age.max}")
     private Integer age;
+
+    /**
+     * 校验邮箱地址
+     */
     @NotNull(message = "{user.email.notnull}")
-    /*校验邮箱地址*/
     @Email(message = "{user.email.pattern}")
     private String email;
 
 
     @Override
     public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", username='" + username + '\'' +
-                ", address='" + address + '\'' +
-                ", age=" + age +
-                ", email='" + email + '\'' +
-                '}';
+        return "User{" + "id=" + id + ", username='" + username + '\'' + ", address='" + address + '\'' + ", age=" + age + ", email='" + email + '\'' + '}';
     }
 
     public Long getId() {

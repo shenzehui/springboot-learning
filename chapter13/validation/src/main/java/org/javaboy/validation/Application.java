@@ -3,11 +3,14 @@ package org.javaboy.validation;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+/**
+ * @author szh
+ */
 @SpringBootApplication
-public class ValidationApplication {
+public class Application {
 
     public static void main(String[] args) {
-        SpringApplication.run(ValidationApplication.class, args);
+        SpringApplication.run(Application.class, args);
     }
 
 }
