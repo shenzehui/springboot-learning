@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="jquery-3.4.1.min.js"></script>
+</head>
+<body>
+你好，江南一点雨
+<a href="http://localhost:8080/oauth/authorize?client_id=javaboy&response_type=token&scope=all&redirect_uri=http://localhost:8082/01.html">第三方登录</a>
+
+<div id="result"></div>
+<script>
+    /**
+     * #access_token=524993bd-16e5-4022-8238-6eef8a62a04b&token_type=bearer&expires_in=7199
+     * @type {string | KeyAlgorithm | HashAlgorithmIdentifier | Algorithm}
+     */
+    let hash = window.location.hash;
+    if(hash && hash.length > 0){
+        let params = hash.substring(1).split("&");
+        let token = params[0].split("=");
+        $.ajax({
+            type:'get',
+            headers:{
+                'Authorization':'Bearer ' + token[1]
+            },
+            url:'http://localhost:8081/hello',  //向资源服务器发送请求
+            success:function (data){
+                $("#result").html(data);
+            }
+        })
+    }
+</script>
+</body>
+</html>

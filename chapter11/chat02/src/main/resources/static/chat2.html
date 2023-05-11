@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--导入pom中的依赖-->
+    <script src="/webjars/jquery/jquery.min.js"></script>
+    <script src="/webjars/sockjs-client/sockjs.min.js"></script>
+    <script src="/webjars/stomp-websocket/stomp.min.js"></script>
+</head>
+<body>
+<div id="chat"></div>
+<div>
+    <label for="username">请输入目标用户名：</label>
+    <input type="text" id="username" placeholder="用户名">
+    <label for="content">请输入聊天内容</label>
+    <input type="text" id="content" placeholder="聊天内容">
+</div>
+<input type="button" id="send" value="发送"/>
+<script>
+    var stompClient;
+    $(function () {
+        connect();
+        // 消息发送
+        $("#send").click(function () {
+            // 第一个参数 发送的请求  第二个：优先级  第三个 消息内容
+            stompClient.send("/online_chat", {}, JSON.stringify({
+                'to': $('#username').val(),
+                'content': $('#content').val()
+            }))
+        })
+    })
+
+    function connect() {
+        // 配置连接地址
+        var sockJS = new SockJS("/chat");
+        stompClient = Stomp.over(sockJS);
+        // 建立连接 两个参数：第一个：连接建立的参数  二：成功的回调
+        stompClient.connect({}, function (frame) {
+            // 注意：这里需要手动配置一个前缀/user  是不可以省略的
+            stompClient.subscribe("/user/queue/chat", function (greeting) {
+                // 存放在body中,注意：这里需要解析一下JSON字符串，将其转为对象，不然无法识别
+                var messageContent = JSON.parse(greeting.body);
+                // 用户名 + 内容
+                $("#chat").append("<div>" + messageContent.from + ":" + messageContent.content + "</div>")
+            });
+        })
+    }
+</script>
+</body>
+</html>

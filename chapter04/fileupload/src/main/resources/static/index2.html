@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="jquery-1.7.2.js"></script>
+</head>
+<body>
+      <div id="result" style="color: green"></div>
+      <input type="file" id="file"><br>
+      <input type="button" value="上传" onclick="uploadFile()">
+      <script type="text/javascript">
+          function uploadFile(){
+              /*获取文件对象*/
+              var file = $("#file")[0].files[0];
+              var formData = new FormData();
+              /*定义表单数据对象，添加文件数据 这里key要和接口中的参数名一致*/
+              formData.append("file",file);
+              $.ajax({
+                  type:'post',
+                  url:'/upload',
+                  processData: false, //是否将上传数据处理成对象 默认为true
+                  contentType: false,  //是否设置请求头
+                  data:formData,
+                  success:function (msg){
+                      $('#result').html(msg);
+                  }
+              })
+          }
+      </script>
+</body>
+</html>

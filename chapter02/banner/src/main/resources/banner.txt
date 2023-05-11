@@ -1,0 +1,11 @@
+${AnsiColor.BRIGHT_GREEN}
+Java 666
+
+MANIFEST.MF 中的版本号：
+
+${application.version}
+${application.formatted-version}
+
+Spring Boot的 版本号：
+${spring-boot.version}
+${spring-boot.formatted-version}

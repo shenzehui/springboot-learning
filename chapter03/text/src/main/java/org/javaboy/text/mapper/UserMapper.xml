@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.javaboy.text.mapper.UserMapper">
+    <!--使用insert,update,delete,select标签写sql-->
+    <resultMap id="BaseResultMap" type="org.javaboy.text.model.User">
+            <result column="u_id" property="uId" jdbcType="INTEGER"/>
+            <result column="u_name" property="uName" jdbcType="VARCHAR"/>
+            <result column="u_password" property="uPassword" jdbcType="VARCHAR"/>
+            <result column="u_sex" property="uSex" jdbcType="VARCHAR"/>
+            <result column="u_age" property="uAge" jdbcType="INTEGER"/>
+            <result column="u_address" property="uAddress" jdbcType="VARCHAR"/>
+            <result column="u_telephone" property="uTelephone" jdbcType="VARCHAR"/>
+            <result column="u_email" property="uEmail" jdbcType="VARCHAR"/>
+            <result column="r_time" property="rTime" jdbcType="TIMESTAMP"/>
+            <result column="l_time" property="lTime" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <select id="getAllUsers" resultMap="BaseResultMap">
+        select * from user;
+    </select>
+</mapper>

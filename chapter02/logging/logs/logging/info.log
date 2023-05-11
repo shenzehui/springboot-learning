@@ -1,0 +1,11 @@
+[2022-05-10 11:00:59,682][main][INFO][org.javaboy.logging.Application:55] Starting LoggingApplication using Java 1.8.0_312 on LAPTOP-V0858VJ8 with PID 19364 (D:\springboot\workspace\code\chapter02\logging\target\classes started by ASUS in D:\springboot\workspace\code\chapter02\logging)
+[2022-05-10 11:00:59,690][main][INFO][org.javaboy.logging.Application:640] No active profile set, falling back to 1 default profile: "default"
+[2022-05-10 11:00:59,611][main][INFO][org.springframework.boot.web.embedded.tomcat.TomcatWebServer:108] Tomcat initialized with port(s): 8080 (http)
+[2022-05-10 11:00:59,630][main][INFO][org.apache.coyote.http11.Http11NioProtocol:173] Initializing ProtocolHandler ["http-nio-8080"]
+[2022-05-10 11:00:59,630][main][INFO][org.apache.catalina.core.StandardService:173] Starting service [Tomcat]
+[2022-05-10 11:00:59,631][main][INFO][org.apache.catalina.core.StandardEngine:173] Starting Servlet engine: [Apache Tomcat/9.0.62]
+[2022-05-10 11:00:59,746][main][INFO][org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]:173] Initializing Spring embedded WebApplicationContext
+[2022-05-10 11:00:59,746][main][INFO][org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext:290] Root WebApplicationContext: initialization completed in -9 ms
+[2022-05-10 11:01:00,125][main][INFO][org.apache.coyote.http11.Http11NioProtocol:173] Starting ProtocolHandler ["http-nio-8080"]
+[2022-05-10 11:01:00,145][main][INFO][org.springframework.boot.web.embedded.tomcat.TomcatWebServer:220] Tomcat started on port(s): 8080 (http) with context path ''
+[2022-05-10 11:01:00,153][main][INFO][org.javaboy.logging.Application:61] Started LoggingApplication in 1.855 seconds (JVM running for 3.62)
