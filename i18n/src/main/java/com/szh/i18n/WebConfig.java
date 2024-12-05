@@ -20,12 +20,14 @@ import java.util.Locale;
  */
 @Configuration
 public class WebConfig implements WebMvcConfigurer {
+
     /**
      * 将需要国际化信息存到session中
+     *
      * @return
      */
     @Bean
-    LocaleResolver localeResolver(){
+    LocaleResolver localeResolver() {
         SessionLocaleResolver resolver = new SessionLocaleResolver();
         resolver.setDefaultLocale(Locale.SIMPLIFIED_CHINESE);
         return resolver;
@@ -33,6 +35,7 @@ public class WebConfig implements WebMvcConfigurer {
 
     /**
      * 添加拦截器
+     *
      * @param registry
      */
     @Override

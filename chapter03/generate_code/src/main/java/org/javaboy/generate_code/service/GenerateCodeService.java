@@ -19,12 +19,17 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * 生成代码业务类
+ *
+ * @author 沈泽辉
+ */
 @Service
 public class GenerateCodeService {
 
-    Configuration cfg = null;
+    private static Configuration cfg;
 
-    {
+    static {
         // Freemarker 版本
         cfg = new Configuration(Configuration.VERSION_2_3_31);
         // 类驱动以及模板位置

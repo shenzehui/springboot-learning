@@ -3,114 +3,40 @@ package ${packageName}.model;
 import java.util.Date;
 import java.math.BigDecimal;
 
+@Getter
+@Setter
 public class ${modelName}{
-
-    <#if columns??>
-        <#list columns as column>
-            <#if column.type='VARCHAR'||column.type='TEXT'||column.type='CHAR'>
-                /**
-                * ${column.remark}
-                */
-                private String ${column.propertyName?uncap_first};
-            </#if>
-            <#if column.type='INT'>
-                /**
-                * ${column.remark}
-                */
-                private Integer ${column.propertyName?uncap_first};
-            </#if>
-            <#if column.type='DATETIME'>
-                /**
-                * ${column.remark}
-                */
-                private Date ${column.propertyName?uncap_first};
-            </#if>
-            <#if column.type='BIGINT'>
-                /**
-                * ${column.remark}
-                */
-                private Long ${column.propertyName?uncap_first};
-            </#if>
-            <#if column.type='DOUBLE'>
-                /**
-                * ${column.remark}
-                */
-                private Double ${column.propertyName?uncap_first};
-            </#if>
-            <#if column.type='BIT'>
-                /**
-                * ${column.remark}
-                */
-                private Boolean ${column.propertyName?uncap_first};
-            </#if>
-            <#if column.type='DECIMAL'>
-                /**
-                * ${column.remark}
-                */
-                private BigDecimal ${column.propertyName?uncap_first};
-            </#if>
-        </#list>
-    </#if>
-
-    <#if columns??>
-        <#list columns as column>
-            <#if column.type='VARCHAR'||column.type='TEXT'||column.type='CHAR'>
-                public String get${column.propertyName}(){
-                    return ${column.propertyName?uncap_first};
-                }
-                public void set${column.propertyName}(String ${column.propertyName?uncap_first}){
-                   this.${column.propertyName?uncap_first} = ${column.propertyName?uncap_first};
-                }
-            </#if>
-            <#if column.type='INT'>
-                public Integer get${column.propertyName}(){
-                    return ${column.propertyName?uncap_first};
-                }
-                public void set${column.propertyName}(Integer ${column.propertyName?uncap_first}){
-                    this.${column.propertyName?uncap_first} = ${column.propertyName?uncap_first};
-                }
-            </#if>
-            <#if column.type='DATETIME'>
-                public Date get${column.propertyName}(){
-                    return ${column.propertyName?uncap_first};
-                }
-                public void set${column.propertyName}(Date ${column.propertyName?uncap_first}){
-                    this.${column.propertyName?uncap_first} = ${column.propertyName?uncap_first};
-                }
-            </#if>
-            <#if column.type='BIGINT'>
-                public Long get${column.propertyName}(){
-                    return ${column.propertyName?uncap_first};
-                }
-                public void set${column.propertyName}(Long ${column.propertyName?uncap_first}){
-                    this.${column.propertyName?uncap_first} = ${column.propertyName?uncap_first};
-                }
-            </#if>
-            <#if column.type='DOUBLE'>
-                public Double get${column.propertyName}(){
-                    return ${column.propertyName?uncap_first};
-                }
-                public void set${column.propertyName}(Double ${column.propertyName?uncap_first}){
-                    this.${column.propertyName?uncap_first} = ${column.propertyName?uncap_first};
-                }
-            </#if>
-            <#if column.type='BIT'>
-                public Boolean get${column.propertyName}(){
-                    return ${column.propertyName?uncap_first};
-                }
-                public void set${column.propertyName}(Boolean ${column.propertyName?uncap_first}){
-                    this.${column.propertyName?uncap_first} = ${column.propertyName?uncap_first};
-                }
-            </#if>
-            <#if column.type='DECIMAL'>
-                public BigDecimal get${column.propertyName}(){
-                    return ${column.propertyName?uncap_first};
-                }
-                public void set${column.propertyName}(BigDecimal ${column.propertyName?uncap_first}){
-                this.${column.propertyName?uncap_first} = ${column.propertyName?uncap_first};
-                }
-            </#if>
-        </#list>
-    </#if>
+<#if columns??>
+    <#list columns as column>
+        <#if column.type='VARCHAR'||column.type='TEXT'||column.type='CHAR'>
+            @Schema(description="${column.remark}")
+            private String ${column.propertyName?uncap_first};
+        </#if>
+        <#if column.type='INT'>
+            @Schema(description="${column.remark}")
+            private Integer ${column.propertyName?uncap_first};
+        </#if>
+        <#if column.type='DATETIME'>
+            @Schema(description="${column.remark}")
+            private Date ${column.propertyName?uncap_first};
+        </#if>
+        <#if column.type='BIGINT'>
+            @Schema(description="${column.remark}")
+            private Long ${column.propertyName?uncap_first};
+        </#if>
+        <#if column.type='DOUBLE'>
+            @Schema(description="${column.remark}")
+            private Double ${column.propertyName?uncap_first};
+        </#if>
+        <#if column.type='BIT'>
+            @Schema(description="${column.remark}")
+            private Boolean ${column.propertyName?uncap_first};
+        </#if>
+        <#if column.type='DECIMAL'>
+            @Schema(description="${column.remark}")
+            private BigDecimal ${column.propertyName?uncap_first};
+        </#if>
+    </#list>
+</#if>
 
 }
