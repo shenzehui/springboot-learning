@@ -6,13 +6,16 @@ import org.springframework.stereotype.Service;
 import org.springframework.beans.factory.annotation.Autowired;
 import java.util.List;
 
+/**
+ * <p>
+ * ${tableDescription} 服务实现类
+ * </p>
+ *
+ * @author 沈泽辉
+ */
+@Slf4j
 @Service
-public class ${serviceName}{
+@AllArgsConstructor
+public class ${serviceName} {
 
-    @Autowired
-    ${mapperName} ${mapperName?uncap_first};
-
-    public List<${modelName}> getAll${modelName}s(){
-        return ${mapperName?uncap_first}.getAll${modelName}s();
-    }
 }

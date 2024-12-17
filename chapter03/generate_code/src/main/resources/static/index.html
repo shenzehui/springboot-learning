@@ -123,12 +123,40 @@
         <div style="color: red;font-weight: bold">*{{result}}*</div>
         <div>{{codePath}}</div>
     </div>
+
+
+    <div>
+        <el-input
+                type="textarea"
+                :rows="8"
+                placeholder="请输入内容"
+                v-model="xmlContent">
+        </el-input>
+
+        <div style="display: flex;justify-content: center;margin: 10px">
+            <el-button icon="el-icon-bottom" @click="convert"></el-button>
+        </div>
+
+        <div>
+
+        </div>
+
+        <el-input
+                type="textarea"
+                :rows="8"
+                v-model="jsonContent">
+        </el-input>
+
+
+    </div>
 </div>
 <script type="text/javascript">
     new Vue({
         el: "#app",
         data: function () {
             return {
+                jsonContent: "",
+                xmlContent: "",
                 result: "waiting",
                 codePath: "",
                 tableData: [],
@@ -144,6 +172,16 @@
             }
         },
         methods: {
+            convert() {
+                let _this = this;
+                axios.get(`/generator?xml=${this.xmlContent}`)
+                    .then(function (response) {
+                        _this.jsonContent = JSON.stringify(response.data.obj, null, 4);
+                    })
+                    .catch(function (error) {
+                        console.log(error);
+                    });
+            },
             connect() {
                 let _this = this;
                 this.db.url = "jdbc:mysql://" + this.db.url + "?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai";

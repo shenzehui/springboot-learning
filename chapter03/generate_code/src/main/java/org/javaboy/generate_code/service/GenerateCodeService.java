@@ -72,7 +72,7 @@ public class GenerateCodeService {
                     while (primaryKeys.next()) {
                         String pkName = primaryKeys.getString("COLUMN_NAME");
                         if (columnName.equals(pkName)) {
-                            columnClass.setPrimary(true);
+                            columnClass.setIsPrimary(true);
                         }
                     }
                     columnClassList.add(columnClass);

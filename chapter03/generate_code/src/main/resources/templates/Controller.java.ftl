@@ -7,14 +7,21 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.GetMapping;
 import java.util.List;
 
+/**
+ * <p>
+ * ${tableDescription} Mapper 类
+ * </p>
+ *
+ * @author 沈泽辉
+ */
+@AllArgsConstructor
 @RestController
-public class ${controllerName}{
+@RequestMapping("")
+@Tag(name = "tableDescription")
+@RestController
+public class ${controllerName} {
 
     @Autowired
-    ${serviceName} ${serviceName?uncap_first};
+    private final ${serviceName} ${serviceName?uncap_first};
 
-    @GetMapping("/${modelName?lower_case}s")
-    public List<${modelName}> getAll${modelName}(){
-        return ${serviceName?uncap_first}.getAll${modelName}s();
-    }
 }
